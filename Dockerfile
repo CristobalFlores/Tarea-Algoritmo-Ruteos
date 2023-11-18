@@ -16,7 +16,7 @@ RUN apt-get install -y -qq \
         gdal-bin
 
 # Copia los archivos GeoPackage (gpkg) a un directorio temporal en la imagen
-COPY Tarea-Algoritmo-Ruteos-main /tmp/
+COPY . /tmp/
 
 
 # Expone el puerto por defecto de PostgreSQL

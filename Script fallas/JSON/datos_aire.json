@@ -1,0 +1,42 @@
+{
+    "status": "ok",
+    "data": {
+        "aqi": 23,
+        "idx": -76147,
+        "attributions": [
+            {
+                "url": "https://sensor.community/",
+                "name": "Citizen Science project sensor.community",
+                "station": "34060"
+            },
+            {
+                "url": "https://waqi.info/",
+                "name": "World Air Quality Index Project"
+            }
+        ],
+        "city": {
+            "geo": [
+                -33.424,
+                -70.638
+            ],
+            "name": "Maestra Lidia Torres",
+            "url": "https://aqicn.org/station/@76147",
+            "location": "Maestra Lidia Torres, Bellavista de San Crist\u00f3bal, Recoleta, Provincia de Santiago, Santiago Metropolitan Region, 7690000, Chile"
+        },
+        "dominentpol": "pm25",
+        "iaqi": {
+            "pm10": {
+                "v": 8
+            },
+            "pm25": {
+                "v": 23
+            }
+        },
+        "time": {
+            "s": "2023-11-27 17:17:24",
+            "tz": "-03:00",
+            "v": 1701116244,
+            "iso": "2023-11-27T20:17:24Z"
+        }
+    }
+}

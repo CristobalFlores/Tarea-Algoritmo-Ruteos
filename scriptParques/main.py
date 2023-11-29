@@ -32,7 +32,7 @@ output_dir = './ParquesUrbanos.kml'
 table_name = 'parks'
 geojson_file = 'converted.geojson'
 table_name = 'parks'
-connection_string = 'postgresql://test:@localhost:5432/test'
+connection_string = 'postgresql://test:test@localhost:5432/test'
 
 # Paso 1: Extraer el archivo KML del KMZ
 kml_file_path = extract_kml_from_kmz(kmz_file_path, output_dir)

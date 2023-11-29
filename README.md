@@ -19,7 +19,10 @@ docker exec -it test /bin/bash
 ```
 ogr2ogr -f "PostgreSQL" PG:"dbname=test user=test password=test host=localhost port=5432" /tmp/test.gpkg
 ```
-
+### INGRESAR A DB
+```
+psql -U test -d test -h localhost -W
+```
 ### Añadir origen destino
 ```
 create extension PGROUTING;

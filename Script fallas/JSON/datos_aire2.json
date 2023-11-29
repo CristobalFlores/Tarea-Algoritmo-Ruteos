@@ -1,0 +1,16 @@
+[
+    {
+        "aqi": 10,
+        "idx": -76147,
+        "name": "Maestra Lidia Torres",
+        "url": "https://aqicn.org/station/@76147",
+        "location": "Maestra Lidia Torres, Bellavista de San Crist\u00f3bal, Recoleta, Provincia de Santiago, Santiago Metropolitan Region, 7690000, Chile",
+        "pm10": 9,
+        "pm25": 10,
+        "s": "2023-11-29 16:08:43",
+        "tz": "-03:00",
+        "v": 1701284923,
+        "iso": "2023-11-29T19:08:43Z"
+    }
+    
+]

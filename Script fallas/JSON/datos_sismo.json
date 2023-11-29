@@ -1,7 +1,7 @@
 {
     "metadata": {
         "request": "https://chilealerta.com/api/query/?user=demo&select=ultimos_sismos&country=Chile",
-        "submitted": "2023-11-28 14:50:16 UTC",
+        "submitted": "2023-11-29 20:00:59 UTC",
         "database": [
             "Chile Alerta Database",
             "INSIMU Database"

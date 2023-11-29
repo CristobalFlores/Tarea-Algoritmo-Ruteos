@@ -31,10 +31,10 @@ def crear_tabla_en_postgres(conexion_str, nombre_tabla, ruta_json):
     with open(ruta_json, 'r') as archivo_json:
         datos_json = json.load(archivo_json)
 
-    datos_json = list(datos_json.values())
-    
-    # Obtener las claves del primer objeto para determinar las columnas
-    columnas = list(datos_json[0].keys())
+    # Obtener todas las claves posibles de todas las instancias
+    columnas = set()
+    for dato in datos_json:
+        columnas.update(dato.keys())
 
     # Crear la tabla
     crear_tabla_query = f"CREATE TABLE {nombre_tabla} ({', '.join([f'{columna} VARCHAR(255)' for columna in columnas])});"
@@ -66,7 +66,7 @@ if datos_api:
     conexion_str = "dbname=test user=test password=test host=localhost"
 
     # Cargar datos en PostgreSQL
-    crear_tabla_en_postgres(conexion_str,"datosAire","Script fallas/JSON/datos_aire.json")
+    crear_tabla_en_postgres(conexion_str,"datosAire","Script fallas/JSON/datos_aire2.json")
 else:
     print("No se pudieron obtener datos de la API.")
 

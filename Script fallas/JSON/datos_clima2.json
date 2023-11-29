@@ -1,0 +1,26 @@
+[
+    {
+        "horas": 1, 
+        "lluvia": "s/p"
+    },
+    {
+        "horas": 3,
+        "lluvia": "s/p"
+    },
+    {
+        "horas": 6,
+        "lluvia": "s/p"
+    },
+    {
+        "horas": 12,
+        "lluvia": "s/p"
+    },
+    {
+        "horas": 24,
+        "lluvia": "s/p"
+    },
+    {
+        "horas": 36,
+        "lluvia": "s/p"
+    }
+]

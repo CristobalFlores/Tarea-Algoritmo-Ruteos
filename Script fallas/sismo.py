@@ -22,31 +22,32 @@ def guardar_en_json(datos, nombre_archivo):
     with open(ruta_archivo, 'w') as archivo:
         json.dump(datos, archivo, indent=4)
 
-def crear_tabla_en_postgres(conexion_str, datos):
-    try:
-        # Establecer conexión con la base de datos
-        conexion = psycopg2.connect(conexion_str)
-        cursor = conexion.cursor()
+def crear_tabla_en_postgres(conexion_str, nombre_tabla, ruta_json):
+    # Conectar a la base de datos
+    conn = psycopg2.connect(conexion_str)
+    cursor = conn.cursor()
 
-        # Extraer las claves del primer registro para definir las columnas
-        primer_registro = datos[0]
-        columnas = ", ".join(f"{key} varchar(255)" for key in primer_registro.keys())
+    # Leer el archivo JSON
+    with open(ruta_json, 'r') as archivo_json:
+        datos_json = json.load(archivo_json)
 
-        # Crear la nueva tabla si no existe
-        cursor.execute(f"""
-            CREATE TABLE IF NOT EXISTS fallaSismo (
-                {columnas}
-            )
-        """)
+    # Obtener todas las claves posibles de todas las instancias
+    columnas = set()
+    for dato in datos_json:
+        columnas.update(dato.keys())
 
-        # Confirmar la transacción y cerrar la conexión
-        conexion.commit()
-        cursor.close()
-        conexion.close()
+    # Crear la tabla
+    crear_tabla_query = f"CREATE TABLE {nombre_tabla} ({', '.join([f'{columna} VARCHAR(255)' for columna in columnas])});"
+    cursor.execute(crear_tabla_query)
 
-        print("Tabla creada en PostgreSQL exitosamente.")
-    except Exception as e:
-        print(f"Error al crear la tabla en PostgreSQL: {e}")
+    # Insertar datos en la tabla
+    for dato in datos_json:
+        insertar_query = f"INSERT INTO {nombre_tabla} ({', '.join(columnas)}) VALUES ({', '.join([f'%({columna})s' for columna in columnas])});"
+        cursor.execute(insertar_query, dato)
+
+    # Confirmar los cambios y cerrar la conexión
+    conn.commit()
+    conn.close()
 
 
 # URL de la API (reemplázala con la URL real de la API que estás utilizando)
@@ -66,6 +67,6 @@ if datos_api:
     conexion_str = "dbname=test user=test password=test host=localhost"
 
     # Cargar datos en PostgreSQL
-    crear_tabla_en_postgres(conexion_str, datos_api)
+    crear_tabla_en_postgres(conexion_str, "datosSismo", "Script fallas/JSON/datos_sismos2.json")
 else:
     print("No se pudieron obtener datos de la API.")

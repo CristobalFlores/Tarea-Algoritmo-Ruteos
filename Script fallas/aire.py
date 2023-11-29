@@ -35,7 +35,7 @@ def crear_tabla_en_postgres(conexion_str, datos):
 
         # Crear la nueva tabla si no existe
         cursor.execute(f"""
-            CREATE TABLE IF NOT EXISTS nombre_tabla (
+            CREATE TABLE IF NOT EXISTS fallaAire (
                 {columnas}
             )
         """)

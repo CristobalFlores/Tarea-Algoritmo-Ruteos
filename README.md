@@ -1,5 +1,28 @@
 # Tarea-Algoritmo-Ruteos
 
+# Plataforma
+### Requisitos
+
+Tener instalado nodejs
+```
+sudo apt install nodejs
+```
+### Pasos
+
+Descargar y descomprimir el archivo leafletF.zip
+entrar a la carpeta 
+
+Instalar dependencias
+```
+npm i
+```
+Ejecutar
+```
+node app.js
+```
+ingresar a http://localhost:3000/
+
+
 ### CORRER CONTENEDOR
 ```
 docker build -t test .
